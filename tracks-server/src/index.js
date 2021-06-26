@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 require("./models/User");
 const authRoutes = require("./routes/authRoutes");
 const bodyParser = require("body-parser");
-
+const requireAuth = require("./middlewares/requireAuth");
 const app = express();
 app.use(bodyParser.json());
 app.use(authRoutes);
@@ -25,8 +25,8 @@ mongoose.connection.on("error", (err) => {
   console.log(err);
 });
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+app.get("/", requireAuth, (req, res) => {
+  res.send(`Welcome ${req.user.email}`);
 });
 
 app.listen(3000, () => {
