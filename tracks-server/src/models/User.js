@@ -15,7 +15,7 @@ const userSchema = mongoose.Schema({
 //Does not pass arrow function as callback because that would
 //change context of "this" to this file.
 //use keyword fucntion instead to make this refer to the user
-userSchema.pre("save", function () {
+userSchema.pre("save", function (next) {
   const user = this;
   //if user did not modify their password
   if (!user.isModified("password")) {
@@ -43,6 +43,7 @@ userSchema.pre("save", function () {
 
 //automate password checking process
 userSchema.methods.comparePassword = function (candidatePass) {
+  const user = this;
   return new Promise((resolve, reject) => {
     bcrypt.compare(candidatePass, user.password, (err, isMatch) => {
       if (err) {
