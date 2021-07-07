@@ -9,11 +9,11 @@ import TrackCreateScreen from "./src/screens/TrackCreateScreen";
 import TrackDetailScreen from "./src/screens/TrackDetailScreen";
 import TrackListScreen from "./src/screens/TrackListScreen";
 
-const switchNavigator = createStackNavigator({
+const switchNavigator = createSwitchNavigator({
   //lower case convention for referring another flow
   loginFlow: createStackNavigator({
-    Signin: SigninScreen,
     Signup: SignupScreen,
+    Signin: SigninScreen,
   }),
   mainFlow: createBottomTabNavigator({
     trackListFlow: createStackNavigator({
