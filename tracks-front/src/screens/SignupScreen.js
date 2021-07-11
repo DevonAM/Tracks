@@ -4,12 +4,14 @@ import { Context as AuthContext } from "../context/AuthContext";
 import AuthForm from "../components/AuthForm";
 import NavLink from "../components/NavLink";
 import Spacer from "../components/Spacer";
+import { NavigationEvents } from "react-navigation";
 
 const SignupScreen = ({ navigation }) => {
-  const { state, signup } = useContext(AuthContext);
+  const { state, signup, clearErrorMessage } = useContext(AuthContext);
 
   return (
     <View style={styles.container}>
+      <NavigationEvents onWillFocus={clearErrorMessage} />
       <AuthForm
         headerText="Sign Up for Tracks"
         errorMessage={state.errorMessage}
