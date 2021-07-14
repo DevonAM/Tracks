@@ -22,6 +22,8 @@ const tryLocalSignin = (dispatch) => {
     if (token) {
       dispatch({ type: "signin", payload: token });
       navigate("TrackList");
+    } else {
+      navigate("Signup");
     }
   };
 };
