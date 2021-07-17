@@ -1,14 +1,15 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import MapView from "react-native-maps";
 
 const Map = () => {
-  return (
-    <View>
-      <Text>I am a map</Text>
-    </View>
-  );
+  return <MapView style={styles.map} />;
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  map: {
+    height: 300,
+  },
+});
 
 export default Map;
