@@ -1,3 +1,4 @@
+import "../_mockLocation";
 import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import Map from "../components/Map";
@@ -25,7 +26,7 @@ const TrackCreateScreen = () => {
     <SafeAreaView forcedInset={{ top: "always" }}>
       <Text style={{ fontSize: 30 }}>TrackCreateScreen</Text>
       <Map />
-      {err ? <Text>{err}</Text> : null}
+      {err ? <Text>{err.message}</Text> : null}
     </SafeAreaView>
   );
 };
