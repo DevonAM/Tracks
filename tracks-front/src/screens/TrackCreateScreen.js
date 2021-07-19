@@ -26,6 +26,7 @@ const TrackCreateScreen = ({ isFocused }) => {
       <Text style={{ fontSize: 30 }}>Create A Track</Text>
       <Map />
       {err ? <Text>{err.message}</Text> : null}
+      <TrackForm />
     </SafeAreaView>
   );
 };
