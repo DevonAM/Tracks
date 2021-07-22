@@ -6,6 +6,7 @@ import TrackForm from "../components/TrackForm";
 import { SafeAreaView, withNavigationFocus } from "react-navigation";
 import { Context as LocationContext } from "../context/LocationContext";
 import useLocation from "../hooks/useLocation";
+import { FontAwesome } from "@expo/vector-icons";
 
 const TrackCreateScreen = ({ isFocused }) => {
   const {
@@ -29,6 +30,11 @@ const TrackCreateScreen = ({ isFocused }) => {
       <TrackForm />
     </SafeAreaView>
   );
+};
+
+TrackCreateScreen.navigationOptions = {
+  title: "Add Track",
+  tabBarIcon: <FontAwesome name="plus" size={24} color="black" />,
 };
 
 const styles = StyleSheet.create({});
