@@ -22,7 +22,6 @@ const tryLocalSignin = (dispatch) => {
   return async () => {
     const token = await AsyncStorage.getItem("token");
     if (token) {
-      console.log("found the token");
       dispatch({ type: "signin", payload: token });
       navigate("TrackList");
     } else {
@@ -74,7 +73,6 @@ const signin = (dispatch) => {
 const signout = (dispatch) => {
   return async () => {
     await AsyncStorage.removeItem("token");
-    console.log("remove token");
     dispatch({ type: "signout" });
     navigate("Signin");
   };
